@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import noticias from "@/db/db";
@@ -7,12 +5,12 @@ import noticias from "@/db/db";
 export default function Home() {
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <h1>Noticias</h1>
+      <h1 className="text-5xl">📋 Noticias generales</h1>
       <section className="grid col-auto sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {noticias.map((n) => (
           <article
             key={n.id}
-            className="max-w-xl bg-silver-100 p-4 rounded-lg shadow-md"
+            className="max-w-xl bg-silver-100 p-4 rounded-lg shadow-md bg-gray-300 hover:bg-gray-200 transition-colors duration-200"
           >
             <h2 className="text-xl font-bold">{n.titulo}</h2>
             <p>{n.descripcion}</p>
@@ -20,10 +18,10 @@ export default function Home() {
 
             <Image src={n.imagen} alt={n.titulo} width={400} height={250} />
 
-            <div className="mt-2">
+            <div className="mt-2 flex justify-center items-center bg-blue-950 ">
               <Link
-                href={`/noticia/${n.id}`}
-                className="text-blue-600 underline"
+                href={`/noticias/${n.id}`}
+                className="text-white font-semibold px-4 py-2 rounded"
               >
                 Ver más
               </Link>
